@@ -1,0 +1,2502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arushi Prem Lal - HR Operations Specialist</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #151520;
+            --bg-card: rgba(30, 30, 45, 0.6);
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8c8;
+            --accent-primary: #06D6A0;
+            --accent-secondary: #118AB2;
+            --accent-tertiary: #EF476F;
+            --accent-gold: #FFD166;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Beautiful Particle Background */
+        #tsparticles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 1rem 5%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            text-transform: uppercase;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
+        nav a:hover::before,
+        nav a.active::before {
+            width: 100%;
+        }
+
+        .contact-btn {
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(6, 214, 160, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(6, 214, 160, 0.5);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            padding: 0.75rem;
+            border-radius: 10px;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 10rem 5% 6rem;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .hero-content {
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.5rem;
+            background: rgba(6, 214, 160, 0.1);
+            border: 1px solid rgba(6, 214, 160, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            color: var(--accent-primary);
+            animation: glow 2s ease-in-out infinite;
+            text-transform: uppercase;
+        }
+
+        .hero-label::before {
+            content: '●';
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(6, 214, 160, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(6, 214, 160, 0.6); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-greeting {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        /* Enhanced 3D Typewriter Effect */
+        .typewriter-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typewriter {
+            background: linear-gradient(135deg, #fff 0%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            position: relative;
+            text-shadow:
+                2px 2px 0 rgba(6, 214, 160, 0.3),
+                4px 4px 0 rgba(6, 214, 160, 0.2),
+                6px 6px 0 rgba(6, 214, 160, 0.1);
+            transform: translateZ(20px);
+            perspective: 1000px;
+        }
+
+        .typewriter::after {
+            content: '|';
+            color: var(--accent-primary);
+            animation: blink 0.7s infinite;
+            margin-left: 5px;
+        }
+
+        .typewriter.finished::after {
+            display: none;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .hero-subtitle span {
+            color: var(--accent-gold);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            border: 2px solid transparent;
+            box-shadow: 0 10px 30px rgba(6, 214, 160, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(6, 214, 160, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--accent-secondary);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(17, 138, 178, 0.4);
+        }
+
+        /* 3D Profile Card */
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInRight 1s ease-out;
+            perspective: 1500px;
+        }
+
+        .card-3d {
+            position: relative;
+            width: 450px;
+            height: 550px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+        }
+
+        .image-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow:
+                0 30px 60px rgba(0, 0, 0, 0.5),
+                0 0 100px rgba(6, 214, 160, 0.3),
+                inset 0 0 100px rgba(6, 214, 160, 0.1);
+            background: linear-gradient(135deg, rgba(6, 214, 160, 0.1), rgba(17, 138, 178, 0.1));
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(6, 214, 160, 0.2);
+        }
+
+        .image-glow {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(6, 214, 160, 0.3) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-image {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 60% center;
+            z-index: 1;
+            filter: brightness(1.1) contrast(1.1);
+        }
+
+        /* Floating Badges */
+        .floating-badge {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: float 4s ease-in-out infinite;
+            text-align: center;
+        }
+
+        .badge-1 {
+            bottom: -20px;
+            right: -40px;
+            animation-delay: 0s;
+        }
+
+        .badge-2 {
+            top: 50px;
+            left: -50px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateZ(50px); }
+            50% { transform: translateY(-25px) translateZ(50px); }
+        }
+
+        .badge-title {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, var(--accent-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text strong {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-tag:hover {
+            background: rgba(6, 214, 160, 0.1);
+            border-color: var(--accent-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(6, 214, 160, 0.2);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* Odd items (1st, 3rd, 5th) - LEFT side */
+        .timeline-item:nth-child(odd) .timeline-content {
+            grid-column: 1;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-empty {
+            grid-column: 2;
+        }
+
+        /* Even items (2nd, 4th) - RIGHT side */
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 2;
+            text-align: left;
+        }
+
+        .timeline-item:nth-child(even) .timeline-empty {
+            grid-column: 1;
+        }
+
+        .timeline-content {
+            padding: 2rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-gold));
+            border-radius: 20px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.5s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-15px) rotateX(5deg) scale(1.02);
+            box-shadow:
+                0 30px 60px rgba(6, 214, 160, 0.3),
+                0 0 40px rgba(6, 214, 160, 0.2),
+                inset 0 0 20px rgba(6, 214, 160, 0.1);
+            border-color: var(--accent-primary);
+        }
+
+        .timeline-content:hover::before {
+            opacity: 0.2;
+            animation: borderGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.4; }
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .timeline-skill {
+            padding: 0.4rem 1rem;
+            background: rgba(6, 214, 160, 0.1);
+            border: 1px solid rgba(6, 214, 160, 0.3);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--accent-primary);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            box-shadow:
+                0 0 20px var(--accent-primary),
+                0 0 40px var(--accent-primary),
+                inset 0 0 10px rgba(255, 255, 255, 0.5);
+            z-index: 10;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: rippleOut 2s ease-out infinite;
+        }
+
+        @keyframes rippleOut {
+            0% {
+                width: 20px;
+                height: 20px;
+                opacity: 0.6;
+            }
+            100% {
+                width: 60px;
+                height: 60px;
+                opacity: 0;
+            }
+        }
+
+        /* Professional Skills Section */
+        .skills-bars-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .skill-bar-item {
+            position: relative;
+        }
+
+        .skill-bar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-bar-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skill-bar-percentage {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .skill-bar-track {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 10px;
+            position: relative;
+            width: 0;
+            transition: width 2s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 0 20px rgba(6, 214, 160, 0.5);
+        }
+
+        .skill-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .skill-bar-item:hover .skill-bar-fill {
+            box-shadow: 0 0 30px rgba(6, 214, 160, 0.8);
+        }
+
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .certification-card {
+            padding: 2rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(6, 214, 160, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .certification-card:hover::before {
+            left: 100%;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--accent-primary);
+            box-shadow: 0 20px 40px rgba(6, 214, 160, 0.3);
+        }
+
+        .certification-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .certification-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .certification-issuer {
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .certification-year {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .education-card {
+            padding: 2.5rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(6, 214, 160, 0.2);
+            border-color: var(--accent-primary);
+        }
+
+        .education-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .education-degree {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .education-university {
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-year {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Social Links */
+        .social-links {
+            position: fixed;
+            right: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            z-index: 100;
+            animation: fadeInRight 1.2s ease-out;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+            z-index: -1;
+        }
+
+        .social-links a:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: 0 10px 30px rgba(6, 214, 160, 0.5);
+        }
+
+        .social-links svg {
+            width: 22px;
+            height: 22px;
+            z-index: 1;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Enhanced Cursor Effects */
+        .cursor-trail {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-primary), transparent);
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.6;
+            transition: transform 0.15s ease;
+        }
+
+        .cursor-glow {
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(6, 214, 160, 0.15), transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            mix-blend-mode: screen;
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* Floating SVG Decorations */
+        .svg-decoration {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.5;
+            transition: transform 0.3s ease;
+        }
+
+        .svg-decoration.parallax {
+            will-change: transform;
+        }
+
+        /* Animated Background Gradient */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(6, 214, 160, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(17, 138, 178, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 209, 102, 0.03) 0%, transparent 50%);
+            animation: gradientFloat 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes gradientFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(5%, 10%) rotate(5deg); }
+            66% { transform: translate(-5%, 5%) rotate(-5deg); }
+        }
+
+        /* Scroll-triggered animations */
+        .parallax-element {
+            will-change: transform;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* Mouse interaction ripple */
+        .mouse-ripple {
+            position: fixed;
+            border-radius: 50%;
+            border: 2px solid var(--accent-primary);
+            pointer-events: none;
+            z-index: 9998;
+            animation: ripple 1s ease-out forwards;
+        }
+
+        @keyframes ripple {
+            from {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            to {
+                width: 100px;
+                height: 100px;
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .social-links {
+                right: 2rem;
+            }
+
+            .about-content,
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content {
+                text-align: left;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 5%;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: rgba(21, 21, 32, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+                z-index: 999;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1001;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 8rem 5% 4rem;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .card-3d {
+                width: 320px;
+                height: 400px;
+            }
+
+            .badge-1 {
+                right: 50%;
+                transform: translateX(50%);
+                bottom: -15px;
+                padding: 1rem 1.5rem;
+            }
+
+            .badge-2 {
+                display: none;
+            }
+
+            .profile-image {
+                object-position: center center;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+                justify-content: center;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .social-links {
+                position: static;
+                transform: none;
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 2rem;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+
+            .hero-subtitle {
+                justify-content: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .stat-item {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                padding: 1rem 2rem;
+            }
+
+            .card-3d {
+                width: 280px;
+                height: 350px;
+            }
+
+            .hero-stats {
+                gap: 0.5rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
+
+            .badge-value {
+                font-size: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Beautiful Particle Background -->
+    <div id="tsparticles"></div>
+
+    <!-- Cursor Glow Effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Beautiful Floating SVG Decorations -->
+    <svg class="svg-decoration parallax" style="top: 10%; left: 5%; width: 100px; height: 100px;" data-speed="0.3">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(6, 214, 160, 0.3)" stroke-width="2">
+            <animate attributeName="r" values="40;50;40" dur="4s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255, 209, 102, 0.3)" stroke-width="2">
+            <animate attributeName="r" values="25;35;25" dur="3s" repeatCount="indefinite"/>
+        </circle>
+    </svg>
+
+    <svg class="svg-decoration parallax" style="top: 40%; right: 8%; width: 80px; height: 80px;" data-speed="0.5">
+        <polygon points="40,10 70,30 60,60 20,60 10,30" fill="none" stroke="rgba(17, 138, 178, 0.3)" stroke-width="2">
+            <animateTransform attributeName="transform" type="rotate" from="0 40 35" to="360 40 35" dur="20s" repeatCount="indefinite"/>
+        </polygon>
+        <polygon points="40,20 60,35 55,55 25,55 20,35" fill="none" stroke="rgba(6, 214, 160, 0.2)" stroke-width="1.5">
+            <animateTransform attributeName="transform" type="rotate" from="360 40 35" to="0 40 35" dur="15s" repeatCount="indefinite"/>
+        </polygon>
+    </svg>
+
+    <svg class="svg-decoration parallax" style="bottom: 15%; left: 10%; width: 120px; height: 120px;" data-speed="0.4">
+        <path d="M60,10 L90,40 L60,70 L30,40 Z" fill="none" stroke="rgba(255, 209, 102, 0.3)" stroke-width="2">
+            <animate attributeName="d" values="M60,10 L90,40 L60,70 L30,40 Z;M60,15 L85,40 L60,65 L35,40 Z;M60,10 L90,40 L60,70 L30,40 Z" dur="5s" repeatCount="indefinite"/>
+        </path>
+        <circle cx="60" cy="40" r="8" fill="rgba(6, 214, 160, 0.4)">
+            <animate attributeName="r" values="6;10;6" dur="2s" repeatCount="indefinite"/>
+        </circle>
+    </svg>
+
+    <svg class="svg-decoration parallax" style="top: 60%; right: 15%; width: 90px; height: 90px;" data-speed="0.6">
+        <rect x="20" y="20" width="50" height="50" fill="none" stroke="rgba(17, 138, 178, 0.3)" stroke-width="2" rx="5">
+            <animateTransform attributeName="transform" type="rotate" from="0 45 45" to="360 45 45" dur="25s" repeatCount="indefinite"/>
+        </rect>
+        <circle cx="45" cy="45" r="15" fill="none" stroke="rgba(255, 209, 102, 0.3)" stroke-width="2">
+            <animate attributeName="r" values="12;18;12" dur="3s" repeatCount="indefinite"/>
+        </circle>
+    </svg>
+
+    <svg class="svg-decoration parallax" style="top: 80%; left: 20%; width: 70px; height: 70px;" data-speed="0.35">
+        <line x1="10" y1="35" x2="60" y2="35" stroke="rgba(6, 214, 160, 0.3)" stroke-width="2">
+            <animate attributeName="x2" values="60;10;60" dur="3s" repeatCount="indefinite"/>
+        </line>
+        <line x1="35" y1="10" x2="35" y2="60" stroke="rgba(17, 138, 178, 0.3)" stroke-width="2">
+            <animate attributeName="y2" values="60;10;60" dur="3s" repeatCount="indefinite"/>
+        </line>
+    </svg>
+
+    <!-- HR THEMED 3D SVG ILLUSTRATIONS -->
+
+    <!-- Person/Human Icon - Top Left -->
+    <svg class="svg-decoration parallax" style="top: 20%; left: 3%; width: 80px; height: 80px;" data-speed="0.4">
+        <defs>
+            <linearGradient id="personGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#06D6A0;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#118AB2;stop-opacity:1" />
+            </linearGradient>
+            <filter id="shadow">
+                <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+            </filter>
+        </defs>
+        <circle cx="40" cy="25" r="12" fill="url(#personGrad)" filter="url(#shadow)">
+            <animate attributeName="r" values="12;14;12" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <path d="M 20 55 Q 20 40 40 40 Q 60 40 60 55 L 55 65 L 25 65 Z" fill="url(#personGrad)" filter="url(#shadow)">
+            <animateTransform attributeName="transform" type="scale" values="1;1.05;1" dur="3s" repeatCount="indefinite" additive="sum"/>
+        </path>
+    </svg>
+
+    <!-- Briefcase/Company Icon - Top Right -->
+    <svg class="svg-decoration parallax" style="top: 25%; right: 5%; width: 90px; height: 90px;" data-speed="0.5">
+        <defs>
+            <linearGradient id="briefcaseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FFD166;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#EF476F;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <rect x="15" y="35" width="60" height="40" rx="5" fill="url(#briefcaseGrad)" filter="url(#shadow)"/>
+        <rect x="38" y="30" width="14" height="10" fill="url(#briefcaseGrad)" filter="url(#shadow)"/>
+        <rect x="42" y="48" width="6" height="8" fill="#0a0a0f" opacity="0.3"/>
+        <animateTransform attributeName="transform" type="rotate" values="0 45 50;5 45 50;0 45 50" dur="4s" repeatCount="indefinite"/>
+    </svg>
+
+    <!-- Book/Education Icon - Middle Left -->
+    <svg class="svg-decoration parallax" style="top: 45%; left: 7%; width: 75px; height: 75px;" data-speed="0.45">
+        <defs>
+            <linearGradient id="bookGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#118AB2;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#06D6A0;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <rect x="20" y="20" width="35" height="45" rx="3" fill="url(#bookGrad)" filter="url(#shadow)"/>
+        <rect x="23" y="23" width="29" height="2" fill="#fff" opacity="0.3"/>
+        <rect x="23" y="28" width="29" height="2" fill="#fff" opacity="0.3"/>
+        <rect x="23" y="33" width="20" height="2" fill="#fff" opacity="0.3"/>
+        <path d="M 20 20 L 25 15 L 60 15 L 55 20 Z" fill="url(#bookGrad)" opacity="0.8" filter="url(#shadow)"/>
+        <animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0" dur="3s" repeatCount="indefinite"/>
+    </svg>
+
+    <!-- Team/Group Icon - Bottom Right -->
+    <svg class="svg-decoration parallax" style="top: 70%; right: 10%; width: 100px; height: 100px;" data-speed="0.55">
+        <defs>
+            <linearGradient id="teamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#06D6A0;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FFD166;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <!-- Three people -->
+        <circle cx="30" cy="35" r="8" fill="url(#teamGrad)" filter="url(#shadow)"/>
+        <path d="M 18 55 Q 18 45 30 45 Q 42 45 42 55 L 40 60 L 20 60 Z" fill="url(#teamGrad)" filter="url(#shadow)"/>
+
+        <circle cx="50" cy="30" r="10" fill="url(#teamGrad)" filter="url(#shadow)"/>
+        <path d="M 36 52 Q 36 40 50 40 Q 64 40 64 52 L 62 60 L 38 60 Z" fill="url(#teamGrad)" filter="url(#shadow)"/>
+
+        <circle cx="70" cy="35" r="8" fill="url(#teamGrad)" filter="url(#shadow)"/>
+        <path d="M 58 55 Q 58 45 70 45 Q 82 45 82 55 L 80 60 L 60 60 Z" fill="url(#teamGrad)" filter="url(#shadow)"/>
+
+        <animateTransform attributeName="transform" type="scale" values="1;1.08;1" dur="4s" repeatCount="indefinite" additive="sum"/>
+    </svg>
+
+    <!-- Chart/Growth Icon - Middle Right -->
+    <svg class="svg-decoration parallax" style="top: 50%; right: 3%; width: 85px; height: 85px;" data-speed="0.48">
+        <defs>
+            <linearGradient id="chartGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" style="stop-color:#EF476F;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FFD166;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <line x1="15" y1="65" x2="70" y2="65" stroke="#06D6A0" stroke-width="2"/>
+        <line x1="15" y1="15" x2="15" y2="65" stroke="#06D6A0" stroke-width="2"/>
+
+        <rect x="20" y="50" width="10" height="15" fill="url(#chartGrad)" filter="url(#shadow)">
+            <animate attributeName="height" values="15;20;15" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="y" values="50;45;50" dur="2s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="35" y="40" width="10" height="25" fill="url(#chartGrad)" filter="url(#shadow)">
+            <animate attributeName="height" values="25;30;25" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="y" values="40;35;40" dur="2.5s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="50" y="25" width="10" height="40" fill="url(#chartGrad)" filter="url(#shadow)">
+            <animate attributeName="height" values="40;45;40" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="y" values="25;20;25" dur="3s" repeatCount="indefinite"/>
+        </rect>
+    </svg>
+
+    <!-- Handshake/Partnership Icon - Bottom Left -->
+    <svg class="svg-decoration parallax" style="top: 65%; left: 12%; width: 95px; height: 95px;" data-speed="0.42">
+        <defs>
+            <linearGradient id="handGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#118AB2;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#06D6A0;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <!-- Simplified handshake -->
+        <path d="M 20 45 L 30 35 L 40 45 L 50 35 L 60 45 L 55 50 L 45 40 L 35 50 L 25 40 Z" fill="url(#handGrad)" filter="url(#shadow)"/>
+        <rect x="18" y="45" width="12" height="20" rx="2" fill="url(#handGrad)" filter="url(#shadow)"/>
+        <rect x="55" y="45" width="12" height="20" rx="2" fill="url(#handGrad)" filter="url(#shadow)"/>
+        <animateTransform attributeName="transform" type="rotate" values="0 47 50;-5 47 50;0 47 50" dur="3s" repeatCount="indefinite"/>
+    </svg>
+
+    <!-- Building/Company Icon - Top Middle -->
+    <svg class="svg-decoration parallax" style="top: 15%; left: 45%; width: 80px; height: 80px;" data-speed="0.38">
+        <defs>
+            <linearGradient id="buildingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#06D6A0;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#118AB2;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <rect x="25" y="15" width="30" height="55" rx="2" fill="url(#buildingGrad)" filter="url(#shadow)"/>
+        <!-- Windows -->
+        <rect x="30" y="22" width="5" height="5" fill="#0a0a0f" opacity="0.3"/>
+        <rect x="45" y="22" width="5" height="5" fill="#0a0a0f" opacity="0.3"/>
+        <rect x="30" y="32" width="5" height="5" fill="#0a0a0f" opacity="0.3"/>
+        <rect x="45" y="32" width="5" height="5" fill="#0a0a0f" opacity="0.3"/>
+        <rect x="30" y="42" width="5" height="5" fill="#0a0a0f" opacity="0.3"/>
+        <rect x="45" y="42" width="5" height="5" fill="#0a0a0f" opacity="0.3"/>
+        <rect x="30" y="52" width="5" height="5" fill="#0a0a0f" opacity="0.3"/>
+        <rect x="45" y="52" width="5" height="5" fill="#0a0a0f" opacity="0.3"/>
+        <rect x="35" y="60" width="10" height="10" fill="#0a0a0f" opacity="0.3"/>
+        <animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0" dur="4s" repeatCount="indefinite"/>
+    </svg>
+
+    <!-- Target/Goal Icon - Bottom Middle -->
+    <svg class="svg-decoration parallax floating-icon" style="top: 85%; left: 50%; width: 70px; height: 70px;" data-speed="0.52">
+        <defs>
+            <linearGradient id="targetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#EF476F;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FFD166;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <circle cx="35" cy="35" r="25" fill="none" stroke="url(#targetGrad)" stroke-width="2" filter="url(#shadow)">
+            <animate attributeName="r" values="25;27;25" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="35" cy="35" r="18" fill="none" stroke="url(#targetGrad)" stroke-width="2" filter="url(#shadow)">
+            <animate attributeName="r" values="18;20;18" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="35" cy="35" r="11" fill="none" stroke="url(#targetGrad)" stroke-width="2" filter="url(#shadow)">
+            <animate attributeName="r" values="11;13;11" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="35" cy="35" r="4" fill="url(#targetGrad)" filter="url(#shadow)">
+            <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+        </circle>
+    </svg>
+
+    <!-- MORE HR SKILLS ICONS -->
+
+    <!-- Resume/CV Icon -->
+    <svg class="svg-decoration parallax floating-icon" style="top: 30%; right: 20%; width: 75px; height: 75px;" data-speed="0.46">
+        <defs>
+            <linearGradient id="resumeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FFD166;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#EF476F;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <rect x="20" y="15" width="35" height="50" rx="3" fill="url(#resumeGrad)" filter="url(#shadow)"/>
+        <circle cx="37.5" cy="28" r="5" fill="#0a0a0f" opacity="0.3"/>
+        <line x1="27" y1="37" x2="48" y2="37" stroke="#0a0a0f" stroke-width="2" opacity="0.3"/>
+        <line x1="27" y1="42" x2="48" y2="42" stroke="#0a0a0f" stroke-width="2" opacity="0.3"/>
+        <line x1="27" y1="47" x2="42" y2="47" stroke="#0a0a0f" stroke-width="2" opacity="0.3"/>
+        <animateTransform attributeName="transform" type="rotate" values="0 37.5 40;3 37.5 40;0 37.5 40" dur="4s" repeatCount="indefinite"/>
+    </svg>
+
+    <!-- Calendar/Scheduling Icon -->
+    <svg class="svg-decoration parallax floating-icon" style="top: 55%; left: 25%; width: 80px; height: 80px;" data-speed="0.43">
+        <defs>
+            <linearGradient id="calendarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#118AB2;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#06D6A0;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <rect x="18" y="22" width="44" height="40" rx="3" fill="url(#calendarGrad)" filter="url(#shadow)"/>
+        <rect x="18" y="22" width="44" height="10" fill="url(#calendarGrad)" opacity="0.8"/>
+        <rect x="23" y="18" width="4" height="8" rx="2" fill="url(#calendarGrad)" filter="url(#shadow)"/>
+        <rect x="53" y="18" width="4" height="8" rx="2" fill="url(#calendarGrad)" filter="url(#shadow)"/>
+        <!-- Calendar grid -->
+        <rect x="25" y="37" width="5" height="5" fill="#0a0a0f" opacity="0.2"/>
+        <rect x="33" y="37" width="5" height="5" fill="#0a0a0f" opacity="0.2"/>
+        <rect x="41" y="37" width="5" height="5" fill="#0a0a0f" opacity="0.2"/>
+        <rect x="49" y="37" width="5" height="5" fill="#0a0a0f" opacity="0.2"/>
+        <rect x="25" y="45" width="5" height="5" fill="#0a0a0f" opacity="0.2"/>
+        <rect x="33" y="45" width="5" height="5" fill="#0a0a0f" opacity="0.2"/>
+        <animateTransform attributeName="transform" type="scale" values="1;1.06;1" dur="3.5s" repeatCount="indefinite" additive="sum"/>
+    </svg>
+
+    <!-- Trophy/Achievement Icon -->
+    <svg class="svg-decoration parallax floating-icon" style="top: 40%; left: 80%; width: 85px; height: 85px;" data-speed="0.5">
+        <defs>
+            <linearGradient id="trophyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FFD166;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#EF476F;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path d="M 30 25 L 28 40 L 35 45 L 50 45 L 57 40 L 55 25 Z" fill="url(#trophyGrad)" filter="url(#shadow)"/>
+        <rect x="38" y="45" width="9" height="8" fill="url(#trophyGrad)" filter="url(#shadow)"/>
+        <rect x="32" y="53" width="21" height="5" rx="2" fill="url(#trophyGrad)" filter="url(#shadow)"/>
+        <path d="M 28 25 Q 22 25 22 30 Q 22 33 28 33" fill="none" stroke="url(#trophyGrad)" stroke-width="2"/>
+        <path d="M 57 25 Q 63 25 63 30 Q 63 33 57 33" fill="none" stroke="url(#trophyGrad)" stroke-width="2"/>
+        <animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0" dur="3s" repeatCount="indefinite"/>
+    </svg>
+
+    <!-- Checklist/Tasks Icon -->
+    <svg class="svg-decoration parallax floating-icon" style="top: 72%; right: 25%; width: 78px; height: 78px;" data-speed="0.48">
+        <defs>
+            <linearGradient id="checklistGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#06D6A0;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#118AB2;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <rect x="22" y="18" width="34" height="44" rx="3" fill="url(#checklistGrad)" filter="url(#shadow)"/>
+        <!-- Checkmarks -->
+        <polyline points="28,28 31,31 36,26" fill="none" stroke="#0a0a0f" stroke-width="2" opacity="0.3"/>
+        <line x1="40" y1="28" x2="50" y2="28" stroke="#0a0a0f" stroke-width="2" opacity="0.3"/>
+        <polyline points="28,38 31,41 36,36" fill="none" stroke="#0a0a0f" stroke-width="2" opacity="0.3"/>
+        <line x1="40" y1="38" x2="50" y2="38" stroke="#0a0a0f" stroke-width="2" opacity="0.3"/>
+        <circle cx="31" cy="48" r="3" fill="none" stroke="#0a0a0f" stroke-width="2" opacity="0.3"/>
+        <line x1="40" y1="48" x2="50" y2="48" stroke="#0a0a0f" stroke-width="2" opacity="0.3"/>
+        <animateTransform attributeName="transform" type="rotate" values="0 39 40;-3 39 40;0 39 40" dur="4s" repeatCount="indefinite"/>
+    </svg>
+
+    <!-- Globe/Diversity Icon -->
+    <svg class="svg-decoration parallax floating-icon" style="top: 18%; left: 70%; width: 82px; height: 82px;" data-speed="0.44">
+        <defs>
+            <linearGradient id="globeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#118AB2;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#06D6A0;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <circle cx="41" cy="41" r="22" fill="none" stroke="url(#globeGrad)" stroke-width="2" filter="url(#shadow)"/>
+        <ellipse cx="41" cy="41" rx="22" ry="12" fill="none" stroke="url(#globeGrad)" stroke-width="1.5" opacity="0.6"/>
+        <line x1="19" y1="41" x2="63" y2="41" stroke="url(#globeGrad)" stroke-width="1.5" opacity="0.6"/>
+        <path d="M 41 19 Q 50 30 41 41 Q 32 52 41 63" fill="none" stroke="url(#globeGrad)" stroke-width="1.5" opacity="0.6"/>
+        <animateTransform attributeName="transform" type="rotate" values="0 41 41;360 41 41" dur="20s" repeatCount="indefinite"/>
+    </svg>
+
+    <!-- Interview/Communication Icon -->
+    <svg class="svg-decoration parallax floating-icon" style="top: 62%; left: 15%; width: 88px; height: 88px;" data-speed="0.47">
+        <defs>
+            <linearGradient id="interviewGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FFD166;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#06D6A0;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <!-- Speech bubbles -->
+        <rect x="20" y="25" width="25" height="18" rx="4" fill="url(#interviewGrad)" filter="url(#shadow)"/>
+        <path d="M 28 43 L 25 48 L 32 43 Z" fill="url(#interviewGrad)" filter="url(#shadow)"/>
+        <rect x="43" y="38" width="25" height="18" rx="4" fill="url(#interviewGrad)" filter="url(#shadow)"/>
+        <path d="M 60 56 L 63 61 L 56 56 Z" fill="url(#interviewGrad)" filter="url(#shadow)"/>
+        <animateTransform attributeName="transform" type="scale" values="1;1.08;1" dur="3.5s" repeatCount="indefinite" additive="sum"/>
+    </svg>
+
+    <!-- Performance/Star Rating Icon -->
+    <svg class="svg-decoration parallax floating-icon" style="top: 48%; right: 12%; width: 76px; height: 76px;" data-speed="0.51">
+        <defs>
+            <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#FFD166;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#EF476F;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <polygon points="38,20 42,32 55,32 45,40 49,52 38,44 27,52 31,40 21,32 34,32" fill="url(#starGrad)" filter="url(#shadow)"/>
+        <animateTransform attributeName="transform" type="rotate" values="0 38 36;10 38 36;0 38 36;-10 38 36;0 38 36" dur="5s" repeatCount="indefinite"/>
+    </svg>
+
+    <!-- Training/Presentation Icon -->
+    <svg class="svg-decoration parallax floating-icon" style="top: 90%; left: 35%; width: 84px; height: 84px;" data-speed="0.49">
+        <defs>
+            <linearGradient id="trainingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#118AB2;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FFD166;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <rect x="20" y="22" width="42" height="32" rx="2" fill="url(#trainingGrad)" filter="url(#shadow)"/>
+        <rect x="38" y="54" width="6" height="8" fill="url(#trainingGrad)" filter="url(#shadow)"/>
+        <rect x="30" y="62" width="22" height="3" fill="url(#trainingGrad)" filter="url(#shadow)"/>
+        <!-- Chart on screen -->
+        <polyline points="26,44 32,38 38,42 44,32 50,36" fill="none" stroke="#0a0a0f" stroke-width="2" opacity="0.3"/>
+        <animateTransform attributeName="transform" type="translate" values="0 0;0 -4;0 0" dur="3.8s" repeatCount="indefinite"/>
+    </svg>
+
+    <div class="content-wrapper">
+        <!-- Header -->
+        <header id="header">
+            <div class="logo">APL</div>
+            <nav id="nav">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#education">Education</a>
+                <a href="https://www.linkedin.com/in/arushiplal/" target="_blank" class="contact-btn">Let's Connect</a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="hero-label">🎯 HR Operations Specialist</span>
+                <h1 class="hero-greeting">Hello, I'm</h1>
+                <h2 class="hero-title">
+                    <div class="typewriter-container">
+                        <span class="typewriter" id="nameTyper"></span>
+                    </div>
+                </h2>
+                <p class="hero-subtitle">
+                    HR Operations <span>|</span> Payroll <span>|</span> Compliance
+                </p>
+                <p class="hero-description">
+                    Strategic HR professional with <strong>5+ years</strong> of expertise in payroll administration, statutory compliance, and employee lifecycle management. Proven track record in streamlining HR processes and maintaining 100% compliance across ESIC, ESI, and PF regulations.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Employees Managed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Compliance Rate</div>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="https://www.linkedin.com/in/arushiplal/" target="_blank" class="btn-primary">Hire Me</a>
+                    <a href="resume.pdf" download class="btn-secondary">Download CV</a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="card-3d" id="card3d">
+                    <div class="image-frame">
+                        <div class="image-glow"></div>
+                        <img src="profile.jpg" alt="Arushi Prem Lal" class="profile-image" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=600&fit=crop&q=80'">
+                    </div>
+
+                    <div class="floating-badge badge-1">
+                        <div class="badge-title">Currently At</div>
+                        <div class="badge-value" style="font-size: 1.2rem;">Admiral<br>Solutions</div>
+                    </div>
+
+                    <div class="floating-badge badge-2">
+                        <div class="badge-title">Based In</div>
+                        <div class="badge-value" style="font-size: 1.5rem;">📍 Gurugram</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="section-header">
+                <div class="section-label">Professional Overview</div>
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Transforming HR operations through strategic compliance and people-first approach</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        As a <strong>HR Operations Specialist with 5+ years</strong> of progressive experience, I excel in managing end-to-end payroll operations, statutory compliance, and HRIS implementation. Currently serving as <strong>HR People Services</strong> at Admiral Solutions, I drive operational excellence through data-driven insights and process optimization.
+                    </p>
+                    <p>
+                        My core competencies include <strong>ESIC, ESI, EPF, Professional Tax, Labour Welfare Fund,</strong> and comprehensive <strong>HRIS systems management</strong>. I've successfully spearheaded compliance frameworks that achieved <strong>100% audit success rates</strong> and streamlined payroll processes for 500+ employees across multiple locations.
+                    </p>
+                    <p>
+                        I'm passionate about leveraging technology to enhance employee experience while ensuring regulatory excellence and organizational compliance.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-tag">💰 Payroll Management</div>
+                    <div class="skill-tag">⚖️ Statutory Compliance</div>
+                    <div class="skill-tag">👥 Employee Relations</div>
+                    <div class="skill-tag">📊 HRIS Implementation</div>
+                    <div class="skill-tag">📋 HR Policy Development</div>
+                    <div class="skill-tag">🤝 Stakeholder Management</div>
+                    <div class="skill-tag">💡 Process Optimization</div>
+                    <div class="skill-tag">📈 Data Analytics</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Skills Section -->
+        <section id="skills">
+            <div class="section-header">
+                <div class="section-label">Core Competencies</div>
+                <h2 class="section-title">Professional Skills</h2>
+                <p class="section-subtitle">Expertise across key HR domains</p>
+            </div>
+
+            <div class="skills-bars-grid">
+                <div class="skill-bar-item" data-percentage="98">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">EPF/ESIC/ESI Compliance (India)</span>
+                        <span class="skill-bar-percentage">98%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-bar-item" data-percentage="96">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Payroll Processing & Management</span>
+                        <span class="skill-bar-percentage">96%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-bar-item" data-percentage="95">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Professional Tax & Labour Welfare Fund</span>
+                        <span class="skill-bar-percentage">95%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-bar-item" data-percentage="94">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Gratuity & Leave Encashment</span>
+                        <span class="skill-bar-percentage">94%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-bar-item" data-percentage="93">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Indian Labour Laws & Regulations</span>
+                        <span class="skill-bar-percentage">93%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-bar-item" data-percentage="92">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">HRIS Implementation & Management</span>
+                        <span class="skill-bar-percentage">92%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-bar-item" data-percentage="90">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Employee Relations & Engagement</span>
+                        <span class="skill-bar-percentage">90%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-bar-item" data-percentage="88">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Shops & Establishment Act Compliance</span>
+                        <span class="skill-bar-percentage">88%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-bar-item" data-percentage="91">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">AI-Powered Recruitment & Hiring</span>
+                        <span class="skill-bar-percentage">91%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-bar-item" data-percentage="89">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">HR Policy Development & Documentation</span>
+                        <span class="skill-bar-percentage">89%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications">
+            <div class="section-header">
+                <div class="section-label">Professional Development</div>
+                <h2 class="section-title">Certifications & Training</h2>
+                <p class="section-subtitle">Continuous learning and professional growth</p>
+            </div>
+
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="certification-icon">🤖</div>
+                    <h3 class="certification-name">Harnessing AI in Recruiting Lifecycle</h3>
+                    <div class="certification-issuer">LinkedIn Learning</div>
+                    <div class="certification-year">Jan 2025 • 1h 12m</div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-icon">📋</div>
+                    <h3 class="certification-name">Creating an Employee Handbook</h3>
+                    <div class="certification-issuer">LinkedIn Learning</div>
+                    <div class="certification-year">Certified</div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-icon">🎯</div>
+                    <h3 class="certification-name">AI Transforming Recruitment</h3>
+                    <div class="certification-issuer">LinkedIn Learning</div>
+                    <div class="certification-year">Certified</div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-icon">💬</div>
+                    <h3 class="certification-name">Communication Skills</h3>
+                    <div class="certification-issuer">Professional Development</div>
+                    <div class="certification-year">Certified</div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-icon">👥</div>
+                    <h3 class="certification-name">Interpersonal Skills</h3>
+                    <div class="certification-issuer">Professional Development</div>
+                    <div class="certification-year">Certified</div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-icon">🎤</div>
+                    <h3 class="certification-name">Presentation Skills</h3>
+                    <div class="certification-issuer">Professional Development</div>
+                    <div class="certification-year">Certified</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="section-header">
+                <div class="section-label">Career Journey</div>
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">5+ years of driving HR excellence across leading organizations</p>
+            </div>
+
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Feb 2024 - Present • 2+ years</div>
+                        <div class="timeline-company">Admiral Solutions</div>
+                        <h3 class="timeline-title">HR People Services</h3>
+                        <p class="timeline-description">
+                            Spearheading HR operations for 500+ employees with focus on payroll excellence and employee engagement. Implemented automated HRIS solutions reducing processing time by 40%. Managing full-spectrum HR operations in Gurugram.
+                        </p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Employee Engagement</span>
+                            <span class="timeline-skill">Payroll Operations</span>
+                            <span class="timeline-skill">HRIS</span>
+                        </div>
+                    </div>
+                    <div class="timeline-empty"></div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-empty"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Nov 2023 - Feb 2024 • 4 months</div>
+                        <div class="timeline-company">groupDCA</div>
+                        <h3 class="timeline-title">Human Resources Executive</h3>
+                        <p class="timeline-description">
+                            Led HR policy development and employee engagement initiatives. Successfully implemented HRIS modules improving data accuracy by 95%. Managed onboarding processes for 50+ new hires.
+                        </p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">HR Policies</span>
+                            <span class="timeline-skill">Employee Engagement</span>
+                            <span class="timeline-skill">HRIS</span>
+                        </div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Apr 2022 - Oct 2023 • 1 yr 7 months</div>
+                        <div class="timeline-company">DKM Online Pvt Ltd</div>
+                        <h3 class="timeline-title">Compliance Executive</h3>
+                        <p class="timeline-description">
+                            Led monthly statutory compliance audits (ESIC, ESI, Professional Tax, LWF). Developed comprehensive compliance frameworks achieving 100% success in regulatory audits. Managed salary registers, attendance systems, and Gratuity Form L processing for multi-state operations.
+                        </p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Compliance Leadership</span>
+                            <span class="timeline-skill">Statutory Audits</span>
+                            <span class="timeline-skill">Team Management</span>
+                        </div>
+                    </div>
+                    <div class="timeline-empty"></div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Experience 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-empty"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Mar 2021 - Mar 2022 • 1 year</div>
+                        <div class="timeline-company">DKM Online Pvt Ltd</div>
+                        <h3 class="timeline-title">Compliance Trainee</h3>
+                        <p class="timeline-description">
+                            Managed employee records maintaining 100% data accuracy. Provided counseling support and attended industry conferences to stay updated on HR regulations and best practices.
+                        </p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Employee Relations</span>
+                            <span class="timeline-skill">Data Management</span>
+                        </div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Experience 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Jul 2019 - Aug 2019 • 2 months</div>
+                        <div class="timeline-company">World Vision India</div>
+                        <h3 class="timeline-title">HR Intern</h3>
+                        <p class="timeline-description">
+                            Conducted field research and data analysis for HR programs. Participated in employee engagement initiatives and organizational development projects.
+                        </p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Data Analysis</span>
+                            <span class="timeline-skill">Field Research</span>
+                        </div>
+                    </div>
+                    <div class="timeline-empty"></div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <div class="section-header">
+                <div class="section-label">Academic Credentials</div>
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">Strong foundation in business and HR management</p>
+            </div>
+
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-icon">🎓</div>
+                    <h3 class="education-degree">Master of Business Administration</h3>
+                    <div class="education-university">Maharshi Dayanand University</div>
+                    <div class="education-year">2020 - 2022</div>
+                    <p style="color: var(--text-secondary); margin-top: 1rem;">
+                        Specialization in Human Resources Management and Personnel Administration
+                    </p>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-icon">📚</div>
+                    <h3 class="education-degree">Bachelor of Business Administration</h3>
+                    <div class="education-university">Guru Gobind Singh Indraprastha University</div>
+                    <div class="education-year">2017 - 2020</div>
+                    <p style="color: var(--text-secondary); margin-top: 1rem;">
+                        Foundation in business administration and management principles
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/arushiplal/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+            <a href="mailto:arushiplal@gmail.com" aria-label="Email" title="Email">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+            </a>
+            <a href="https://github.com/arushiplal" target="_blank" aria-label="GitHub" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer id="contact">
+            <p>&copy; 2026 Arushi Prem Lal. All rights reserved. | <a href="mailto:arushiplal@gmail.com">Get in Touch</a></p>
+        </footer>
+    </div>
+
+    <!-- TSParticles - Beautiful Particle Effects -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <!-- GSAP for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        // ==================== GSAP ScrollTrigger Registration ====================
+        gsap.registerPlugin(ScrollTrigger);
+
+        // ==================== TSPARTICLES - BEAUTIFUL SOOTHING BACKGROUND ====================
+        tsParticles.load("tsparticles", {
+            background: {
+                color: "#0a0a0f"
+            },
+            fpsLimit: 60,
+            interactivity: {
+                events: {
+                    onClick: { enable: true, mode: "push" },
+                    onHover: { enable: true, mode: "grab" },
+                    resize: true
+                },
+                modes: {
+                    push: { quantity: 2 },
+                    grab: { distance: 150, links: { opacity: 0.5 } }
+                }
+            },
+            particles: {
+                color: { value: ["#06D6A0", "#118AB2", "#FFD166"] },
+                links: {
+                    color: "#06D6A0",
+                    distance: 150,
+                    enable: true,
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    outModes: { default: "bounce" }
+                },
+                number: {
+                    value: 80,
+                    density: { enable: true, area: 800 }
+                },
+                opacity: {
+                    value: 0.7,
+                    animation: {
+                        enable: true,
+                        speed: 0.5,
+                        minimumValue: 0.3
+                    }
+                },
+                shape: { type: "circle" },
+                size: {
+                    value: { min: 2, max: 5 },
+                    animation: {
+                        enable: true,
+                        speed: 2,
+                        minimumValue: 1
+                    }
+                }
+            },
+            detectRetina: true
+        });
+
+        // ==================== ENHANCED MOUSE INTERACTIONS ====================
+        const cursorGlow = document.getElementById('cursorGlow');
+
+        document.addEventListener('mousemove', (e) => {
+            // Cursor glow with GSAP
+            if (cursorGlow) {
+                gsap.to(cursorGlow, {
+                    x: e.clientX - 100,
+                    y: e.clientY - 100,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            }
+
+            // Smooth SVG parallax with GSAP
+            document.querySelectorAll('.svg-decoration.parallax').forEach(el => {
+                const speed = parseFloat(el.getAttribute('data-speed')) || 0.5;
+                const x = (e.clientX - window.innerWidth / 2) * speed * 0.02;
+                const y = (e.clientY - window.innerHeight / 2) * speed * 0.02;
+
+                gsap.to(el, {
+                    x: x,
+                    y: y,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+            });
+        });
+
+        // ==================== GSAP SMOOTH SCROLL PARALLAX ====================
+        // Hero parallax
+        gsap.to(".hero", {
+            y: 300,
+            opacity: 0.2,
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: 1.5
+            }
+        });
+
+        // Profile card 3D parallax
+        gsap.to("#card3d", {
+            y: 200,
+            rotationY: 20,
+            scale: 0.85,
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: 1.5
+            }
+        });
+
+        // Section fade in animations
+        gsap.utils.toArray('section').forEach((section, index) => {
+            gsap.from(section, {
+                opacity: 0,
+                y: 100,
+                duration: 1.2,
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 85%",
+                    end: "top 50%",
+                    scrub: 1
+                }
+            });
+        });
+
+        // ==================== FLOATING SVG ICONS ANIMATION ====================
+        // Make all SVG icons drift beautifully around the screen
+        gsap.utils.toArray('.floating-icon').forEach((icon, index) => {
+            const duration = 15 + index * 2; // Staggered durations
+            const xMove = 30 + Math.random() * 40; // Random horizontal movement
+            const yMove = 30 + Math.random() * 40; // Random vertical movement
+
+            // Create floating animation
+            gsap.to(icon, {
+                x: `+=${Math.random() > 0.5 ? xMove : -xMove}`,
+                y: `+=${Math.random() > 0.5 ? yMove : -yMove}`,
+                rotation: Math.random() * 10 - 5,
+                duration: duration,
+                ease: "sine.inOut",
+                yoyo: true,
+                repeat: -1
+            });
+
+            // Add gentle rotation
+            gsap.to(icon, {
+                rotation: `+=${Math.random() * 15 - 7.5}`,
+                duration: duration * 0.6,
+                ease: "sine.inOut",
+                yoyo: true,
+                repeat: -1
+            });
+
+            // Add scale pulsing
+            gsap.to(icon, {
+                scale: 1.15,
+                duration: duration * 0.4,
+                ease: "sine.inOut",
+                yoyo: true,
+                repeat: -1
+            });
+        });
+
+        // ==================== ANIMATED SKILL BARS ====================
+        gsap.utils.toArray('.skill-bar-item').forEach((item) => {
+            const fill = item.querySelector('.skill-bar-fill');
+            const percentage = item.getAttribute('data-percentage');
+
+            gsap.to(fill, {
+                width: percentage + '%',
+                duration: 2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top 80%",
+                    once: true
+                }
+            });
+        });
+
+        // Animate certification cards
+        gsap.utils.toArray('.certification-card').forEach((card, index) => {
+            gsap.from(card, {
+                opacity: 0,
+                y: 50,
+                rotationY: -20,
+                scale: 0.9,
+                duration: 0.8,
+                delay: index * 0.1,
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                    once: true
+                },
+                ease: "back.out(1.4)"
+            });
+        });
+
+        // ==================== 3D ANIMATED TIMELINE ====================
+        // Animate timeline items as they enter viewport
+        gsap.utils.toArray('.timeline-item').forEach((item, index) => {
+            const isEven = index % 2 === 0;
+
+            gsap.from(item, {
+                opacity: 0,
+                x: isEven ? -100 : 100,
+                rotationY: isEven ? -30 : 30,
+                scale: 0.8,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top 80%",
+                    end: "top 50%",
+                    scrub: 1,
+                    onEnter: () => {
+                        gsap.to(item, {
+                            rotationY: 0,
+                            scale: 1,
+                            duration: 0.8,
+                            ease: "back.out(1.4)"
+                        });
+                    }
+                }
+            });
+
+            // Animate timeline dot
+            const dot = item.querySelector('.timeline-dot');
+            if (dot) {
+                gsap.from(dot, {
+                    scale: 0,
+                    opacity: 0,
+                    duration: 0.6,
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top 75%"
+                    },
+                    ease: "back.out(2)"
+                });
+            }
+        });
+
+        // ==================== 3D CARD TILT ====================
+        const card3d = document.getElementById('card3d');
+        let cardBounds;
+
+        card3d.addEventListener('mouseenter', () => {
+            cardBounds = card3d.getBoundingClientRect();
+        });
+
+        card3d.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX - cardBounds.left;
+            const mouseY = e.clientY - cardBounds.top;
+            const xRotation = ((mouseY / cardBounds.height) - 0.5) * 25;
+            const yRotation = ((mouseX / cardBounds.width) - 0.5) * -25;
+
+            card3d.style.transform = `perspective(1500px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale3d(1.05, 1.05, 1.05)`;
+        });
+
+        card3d.addEventListener('mouseleave', () => {
+            card3d.style.transform = 'perspective(1500px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+
+        // ==================== ENHANCED TYPEWRITER ====================
+        const typewriterElement = document.getElementById('nameTyper');
+        const fullText = 'Arushi Prem Lal';
+        let charIndex = 0;
+
+        function typeWriter() {
+            if (charIndex < fullText.length) {
+                typewriterElement.textContent += fullText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 120);
+            } else {
+                setTimeout(() => {
+                    typewriterElement.classList.add('finished');
+                }, 1000);
+            }
+        }
+
+        setTimeout(typeWriter, 1000);
+
+        // ==================== BEAUTIFUL CURSOR TRAIL ====================
+        const trails = [];
+        const trailCount = 12;
+
+        for(let i = 0; i < trailCount; i++) {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+
+            // Varied colors for trail
+            const colors = ['rgba(6, 214, 160, 0.8)', 'rgba(17, 138, 178, 0.8)', 'rgba(255, 209, 102, 0.8)'];
+            trail.style.background = `radial-gradient(circle, ${colors[i % 3]}, transparent)`;
+
+            document.body.appendChild(trail);
+            trails.push({ element: trail, x: 0, y: 0 });
+        }
+
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            cursorX = e.clientX;
+            cursorY = e.clientY;
+        });
+
+        function animateTrail() {
+            trails.forEach((trail, index) => {
+                trail.x += (cursorX - trail.x) * (0.15 - index * 0.008);
+                trail.y += (cursorY - trail.y) * (0.15 - index * 0.008);
+
+                const scale = 1.1 - (index * 0.07);
+                const opacity = 0.7 - (index * 0.05);
+
+                trail.element.style.left = trail.x + 'px';
+                trail.element.style.top = trail.y + 'px';
+                trail.element.style.transform = `translate(-50%, -50%) scale(${scale})`;
+                trail.element.style.opacity = opacity;
+            });
+
+            requestAnimationFrame(animateTrail);
+        }
+
+        animateTrail();
+
+        // ==================== NAVIGATION ====================
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('nav');
+        const header = document.getElementById('header');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if(link.getAttribute('href').startsWith('#')) {
+                    nav.classList.remove('active');
+                }
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Header scroll effect and active nav
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+
+            if (scrollPos > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .education-card, .skill-tag').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
